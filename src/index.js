@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Users from './users/components/users.js';
+import { render } from 'react-dom';
+import UsersList from './users/components/userslist.js';
+import Login from './login/components/login.js';
 
 
 const app = document.getElementById('app');
-ReactDOM.render(<Users />,app);
+render(<Login />,app);

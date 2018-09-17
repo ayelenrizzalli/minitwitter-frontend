@@ -1,32 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios'
+import './users.css'
 
-class Users extends React.Component {
-  constructor(props) {
-        super(props);
-        this.state = {
-            users: []
-          }
-    };
-
-  componentDidMount() {
-      axios.get('http://localhost:3001/users')
-        .then(json => this.setState({users: json.data.users}))
-    };
+class User extends Component {
 
   render() {
-    console.log(this.state.users);
     return (
-      <ul>
-      {
-        this.state.users.map(function (user) {
-          return <li key={user._id}> {user.name} </li>
-        })
-      }
-      </ul>
+     <div> <img className="profileimg" src={this.props.user.photo}/> {this.props.user.name} </div>
     );
   }
 }
 
-export default Users;
+export default User;
