@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import axios from 'axios'
 import './users.css'
 
-class User extends Component {
-
-  render() {
+function User (props) {
     return (
-     <div> <img className="profileimg" src={this.props.user.photo}/> {this.props.user.name} </div>
+     <div> <img className="profileimg" src={props.user.photo}/> {props.user.name} </div>
     );
-  }
 }
 
 export default User;
