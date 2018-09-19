@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import FormLogin from '../components/formlogin';
+import LoginComponent from '../components/LoginComponent';
 
 
-export default class Login extends Component {
+export default class LoginContainer extends Component {
 
 constructor(props) {
     super(props);
@@ -59,7 +59,7 @@ constructor(props) {
 
   render() {
     return (
-      <FormLogin handleSubmit={this.handleSubmit} handleChange={this.handleChange} validateForm={this.validateForm}/>
+      <LoginComponent handleSubmit={this.handleSubmit} handleChange={this.handleChange} validateForm={this.validateForm} />
     );
   }
 }

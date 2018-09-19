@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import './login.css'
 
-function FormLogin (props) {
+function LoginComponent (props) {
   return (
     <div className="Login">
       <form onSubmit={props.handleSubmit}>
@@ -38,4 +38,4 @@ function FormLogin (props) {
   )
 }
 
-export default FormLogin;
+export default LoginComponent;
