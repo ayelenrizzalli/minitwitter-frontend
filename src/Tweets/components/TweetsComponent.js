@@ -6,7 +6,7 @@ function TweetsComponent(props) {
     <div>
       {
         props.tweets.map((item) =>{
-          return <Tweet key={item.id} {...item} />
+          return <Tweet key={item._id} {...item} />
         })
       }
     </div>
