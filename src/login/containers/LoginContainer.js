@@ -49,6 +49,7 @@ constructor(props) {
       console.log("Heade With Authentication :");
       console.log(response);
       console.log(typeof(response));
+      axios.defaults.headers.common['x-auth-token'] = response.data.token;
     })
     .catch(function (error) {
       console.log("Post Error : " + error);

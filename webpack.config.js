@@ -17,7 +17,7 @@ module.exports = (env) => {
   return {
 
     entry: {
-      "minitwitter-frontend": path.resolve(__dirname, 'src'),
+      "minitwitter-frontend": path.resolve(__dirname, './src/app.js'),
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -27,6 +27,7 @@ module.exports = (env) => {
     },
     devServer: {
       port: 3000,
+      contentBase: "./src"
     },
     module: {
       rules: [

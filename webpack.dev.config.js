@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-      "minitwitter-frontend": path.resolve(__dirname, 'src/index.js'),
+      "minitwitter-frontend": path.resolve(__dirname, 'src/app.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -10,6 +10,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
+    contentBase: "./src"
   },
   devtool: 'eval-source-map',
   module: {
