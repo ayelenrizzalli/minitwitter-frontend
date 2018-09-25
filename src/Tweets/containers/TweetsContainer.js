@@ -27,9 +27,6 @@ class TweetsContainer extends Component {
         "Content-Type": "application/x-www-form-urlencoded",
       }
     }).then(function (response) {
-        console.log("with auth");
-        console.log(response);
-        console.log(typeof(response));
         scope.setState({ tweets : response.data.feed });
     })
     .catch(function (error) {

@@ -46,9 +46,6 @@ constructor(props) {
         "Content-Type": "application/x-www-form-urlencoded",
       }
     }).then(function (response) {
-      console.log("Heade With Authentication :");
-      console.log(response);
-      console.log(typeof(response));
       axios.defaults.headers.common['x-auth-token'] = response.data.token;
     })
     .catch(function (error) {

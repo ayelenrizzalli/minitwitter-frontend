@@ -5,8 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import UsersList from './users/components/userslist.js';
 import LoginContainer from './login/containers/LoginContainer.js';
 import Feed from './Feed/containers/FeedContainer.js';
+import NotFound from './pages/components/not-found.js';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router , Route, Link, Switch } from 'react-router-dom';
 
 
 const app = document.getElementById('app');
@@ -26,11 +27,14 @@ render(
           </ul>
 
           <hr />
-
-          <Route exact path="/" component={LoginContainer} />
-          <Route path="/users" component={UsersList} />
-          <Route path="/feed" component={Feed} />
+          <Switch>
+            <Route exact path="/" component={LoginContainer} />
+            <Route exact path="/users" component={UsersList} />
+            <Route exact path="/feed" component={Feed} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
+
       </Router>
   ,app
 );
