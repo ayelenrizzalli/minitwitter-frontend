@@ -18,7 +18,7 @@ constructor(props) {
   }
 
   validateForm() {
-    return true;
+    return this.state.tweetText.length > 0;
   }
 
   handleChange = event => {
