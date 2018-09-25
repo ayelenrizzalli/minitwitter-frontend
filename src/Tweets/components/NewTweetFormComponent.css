@@ -1,0 +1,10 @@
+@media all and (min-width: 480px) {
+  .NewTweet {
+    padding: 60px 0;
+  }
+
+  .NewTweet form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}

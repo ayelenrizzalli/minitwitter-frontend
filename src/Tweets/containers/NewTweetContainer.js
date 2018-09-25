@@ -1,43 +1,40 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import LoginComponent from '../components/LoginComponent';
+import NewTweetForm from '../components/NewTweetFormComponent';
 
 
-class LoginContainer extends Component {
+class NewTweetContainer extends Component {
 
 constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      token:"",
+      tweetText: "",
+      token: axios.defaults.headers.common['x-auth-token'],
     };
 
     this.validateForm = this.validateForm.bind(this);
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return true;
   }
 
   handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+    this.setState({tweetText: event.target.value});
   }
 
   handleSubmit = event => {
     event.preventDefault();
     var reqData = {
-            "email": this.state.email,
-            "password": this.state.password,
-        };
+      "x-auth-token": this.state.token,
+      "text": this.state.tweetText
+    };
 
     axios({
           method: 'post',
-          url: 'http://localhost:3001/users/login',
+          url: 'http://localhost:3001/tweets/',
           withCredentials: true,
           crossdomain: true,
           data: Object.keys(reqData).map(function(key) {
@@ -46,7 +43,8 @@ constructor(props) {
         "Content-Type": "application/x-www-form-urlencoded",
       }
     }).then(function (response) {
-      axios.defaults.headers.common['x-auth-token'] = response.data.token;
+      console.log("new tweet")
+      console.log(response)
     })
     .catch(function (error) {
       console.log("Post Error : " + error);
@@ -57,9 +55,9 @@ constructor(props) {
 
   render() {
     return (
-      <LoginComponent handleSubmit={this.handleSubmit} handleChange={this.handleChange} validateForm={this.validateForm} />
+      <NewTweetForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} validateForm={this.validateForm} />
     );
   }
 }
 
-export default LoginContainer;
+export default NewTweetContainer;

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import './login.css'
 
